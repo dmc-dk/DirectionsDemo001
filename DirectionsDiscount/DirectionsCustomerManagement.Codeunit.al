@@ -15,6 +15,7 @@ codeunit 50141 DirectionsCustomerManagement
     [EventSubscriber(ObjectType::Table, Database::"Sales Header", OnAfterCopySellToCustomerAddressFieldsFromCustomer, '', false, false)]
     local procedure "Sales Header_OnAfterCopySellToCustomerAddressFieldsFromCustomer"(var SalesHeader: Record "Sales Header"; SellToCustomer: Record Customer; CurrentFieldNo: Integer; var SkipBillToContact: Boolean; var SkipSellToContact: Boolean)
     begin
+        // Copy the IsDirectionsPart field from the customer to the sales header
         SalesHeader."Sell-to IsDirectionsPart." := SellToCustomer.IsDirection2024Customer;
     end;
 
