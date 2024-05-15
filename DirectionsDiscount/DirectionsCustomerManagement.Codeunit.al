@@ -8,6 +8,7 @@ codeunit 50141 DirectionsCustomerManagement
         // Check if the customer is a participant in the Directions 2024 conference
         if SalesHeader."Sell-to IsDirectionsPart." then
             if (SalesHeader."Invoice Discount Value" < 20) then
+                // Display a message to the user if the discount is less than 20%
                 Message(ConfirmInvoicePctLbl, Round(SalesHeader."Invoice Discount Value"));
     end;
 
