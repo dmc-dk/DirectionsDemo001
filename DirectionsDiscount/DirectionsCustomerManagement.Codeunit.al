@@ -11,6 +11,7 @@ codeunit 50141 DirectionsCustomerManagement
                 Message(ConfirmInvoicePctLbl, Round(SalesHeader."Invoice Discount Value"));
     end;
 
+    // Event subscriber for copying the IsDirectionsPart field from the customer to the sales header
     [EventSubscriber(ObjectType::Table, Database::"Sales Header", OnAfterCopySellToCustomerAddressFieldsFromCustomer, '', false, false)]
     local procedure "Sales Header_OnAfterCopySellToCustomerAddressFieldsFromCustomer"(var SalesHeader: Record "Sales Header"; SellToCustomer: Record Customer; CurrentFieldNo: Integer; var SkipBillToContact: Boolean; var SkipSellToContact: Boolean)
     begin
