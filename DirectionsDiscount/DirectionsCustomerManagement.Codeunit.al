@@ -5,7 +5,7 @@ codeunit 50141 DirectionsCustomerManagement
     var
         ConfirmInvoicePctLbl: Label 'Directions participants have a recommended discount of 20%. Current discount is calculated at %1.';
     begin
-        // Check if the customer is a participant in the Directions 2024
+        // Check if the customer is a participant
         if SalesHeader."Sell-to IsDirectionsPart." then
             if (SalesHeader."Invoice Discount Value" < 20) then
                 Message(ConfirmInvoicePctLbl, Round(SalesHeader."Invoice Discount Value"));
